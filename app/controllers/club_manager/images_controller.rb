@@ -6,6 +6,7 @@ class ClubManager::ImagesController < ApplicationController
   def create
     image = Image.new image_params
     if image.save
+      create_acivity image, current_user, Settings.create
       flash[:success] = t "club_manager.image.success_create"
     else
       flash_error image

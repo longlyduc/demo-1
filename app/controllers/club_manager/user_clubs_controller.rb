@@ -11,7 +11,8 @@ class ClubManager::UserClubsController < BaseClubManagerController
   end
 
   def update
-    if @user_club.update_attributes status: true
+    if @user_club.joined!
+      create_acivity @user_club, current_user, Settings.update
       flash[:success] = t "club_manager.user_club.success_update"
     else
       flash_error @club

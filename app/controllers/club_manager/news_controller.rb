@@ -6,6 +6,7 @@ class ClubManager::NewsController < BaseClubManagerController
   def create
     news = News.new news_params
     if news.save
+      create_acivity news, current_user, Settings.create
       flash[:success] = t "club_manager.news.success_create"
     else
       flash_error news
@@ -22,6 +23,7 @@ class ClubManager::NewsController < BaseClubManagerController
 
   def update
     if @news.update_attributes news_params
+      create_acivity @news, current_user, Settings.update
       flash[:success] = t "club_manager.news.success_update"
       redirect_to club_manager_club_event_news_path
     else
