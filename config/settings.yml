@@ -44,3 +44,4 @@ consum: 2
 inprocess: "inprocess"
 finished: "finished"
 event: "Event"
+joined: 1
