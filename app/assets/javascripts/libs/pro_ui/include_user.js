@@ -16,4 +16,5 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).ready(function() {
+  $("#example-datatable").dataTable();
 });
