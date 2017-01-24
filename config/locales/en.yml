@@ -1,5 +1,4 @@
 en:
-<<<<<<< HEAD
   cant_edit: "Can edit information!"
   event_status: "Status: "
   event_is_finish: "Event already finish!!!"
@@ -12,12 +11,10 @@ en:
   organizaiton_created_at: "Date Created"
   back_to_my_club: "Back to my clubs"
   user_organizations: "Organizations of User"
-=======
   invite_user_join_club: "Invite friends to joins Club"
   invites_user: "Invites Users"
   leave_club: "Leave This Club"
   invite_join_club: "Invites to join Club"
->>>>>>> Done invites
   busy: "Busy"
   available: "Available"
   approve_success: "Request approve successfull"

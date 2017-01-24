@@ -1,4 +1,4 @@
-<section class="site-content site-section event-comment">
+<section class="site-content site-section">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 site-block">
@@ -11,7 +11,7 @@
               </a>
               <div class="media-body">
                 <span class="text-muted pull-right"><small><em>
-                  <%= time_ago_in_words comment.created_at %>
+                  <%= l comment.created_at, format: :short %>
                 </em></small></span>
                 <%= link_to comment.user do %>
                   <strong><%= comment.user.full_name %></strong>

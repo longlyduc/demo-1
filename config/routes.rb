@@ -60,5 +60,6 @@ Rails.application.routes.draw do
   resources :organizations, only: :show
   resources :time_line_homes
   resources :comments
+  resources :users, only: :show
   resources :set_language, only: :update
 end
