@@ -1,0 +1,65 @@
+<div id="modal-users" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h2 class="modal-title">
+            <span class="fa fa-user-plus">
+          <%= t "invite_users" %>
+          </span>
+        </h2>
+      </div>
+      <div class="modal-body">
+      	<div class="table-responsive">
+  	      <table id="example-datatable"
+  	        class="table table-vcenter table-condensed table-bordered">
+  	        <thead>
+  	          <tr>
+  	            <th></th>
+  	            <th></th>
+  	          </tr>
+  	        </thead>
+  	        <tbody>
+              <%= form_for "#" do |f| %>
+                <% User.without_users(@club.users).eliminate(current_user).each do |user| %>
+                  <tr>
+                    <td class="cl-name">
+                      <%= image_tag user.avatar, class: "circle img-small" %>
+                      <%= user.full_name %>
+                    </td>
+                    <td>
+                      <label class="switch switch-info">
+                        <%= f.check_box(:user_id) %>
+                        <span class="abc" id="<%= user.id %>" data-club="<%= @club.id %>"></span>
+                      </label>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
+  	        </tbody>
+  	      </table>
+        </div>
+        <div class="form-group form-actions">
+          <div class="col-xs-12 text-right">
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+              <%= t "close" %>
+            </button>
+            <%= submit_tag :Invites, class: "btn btn-sm btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(".abc").click(function(){
+    var id_input = $(this).attr("id");
+    var input = document.getElementById(id_input);
+    $.post(
+      "/invite_join_clubs", {
+        user_id: id_input,
+        club_id: input.getAttribute("data-club")
+      },
+      function(data) {}
+    );
+  });
+</script>

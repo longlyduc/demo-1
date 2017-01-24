@@ -1,0 +1,2 @@
+module InviteJoinClubsHelper
+end
